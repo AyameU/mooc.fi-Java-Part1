@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="week2-029.EvenNumbers" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="EvenNumbers" />
+    <module name="week2-029.EvenNumbers" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
