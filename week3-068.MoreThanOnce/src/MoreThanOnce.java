@@ -4,8 +4,23 @@ import java.util.Scanner;
 public class MoreThanOnce {
 
     public static boolean moreThanOnce(ArrayList<Integer> list, int searched) {
-        // write your code here
-        return false;
+
+        int counter = 0;
+
+        for(int i = 0; i < list.size(); i++) {
+            if(searched == list.get(i)) {
+                counter++;
+            }
+        }
+
+        System.out.println(counter);
+
+        if(counter > 1) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
