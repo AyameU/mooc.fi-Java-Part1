@@ -22,12 +22,18 @@ public class CombiningArrayLists {
         // list2.add(10);
         // list2.add(7);
 
-        // Implement the following method and then remove the comment
-        // combine(list1, list2);
+        combine(list1, list2);
+
         System.out.println(list1);
         System.out.println(list2);
-
-
     }
 
+    public static void combine(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+
+        int counter = 0;
+        while(counter < list2.size()) {
+            list1.add(list2.get(counter));
+            counter++;
+        }
+    }
 }
