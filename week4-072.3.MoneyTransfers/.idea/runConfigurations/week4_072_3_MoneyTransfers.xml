@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="week4-072.3.MoneyTransfers" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="Accounts" />
+    <module name="week4-072.3.MoneyTransfers" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
