@@ -28,6 +28,8 @@ public class BoundedCounter {
         }
     }
 
+    // Getter
+
     /*
     This getter is needed because it can be accessed by other classes unlike the other
     variables in this class. Without this getter I can't validate the variable with
@@ -37,5 +39,15 @@ public class BoundedCounter {
     */
     public int getValue() {
         return value;
+    }
+
+    // Setter Method
+
+    public void setValue(int value) {
+        if(value < 0 || value > upperLimit) {
+        }
+        else {
+            this.value = value;
+        }
     }
 }
