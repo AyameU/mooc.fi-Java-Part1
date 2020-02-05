@@ -3,28 +3,20 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
+    public static void main(String[] args) throws Exception {
         BoundedCounter seconds = new BoundedCounter(59);
         BoundedCounter minutes = new BoundedCounter(59);
         BoundedCounter hours = new BoundedCounter(23);
 
-        System.out.print("seconds: ");
-        int s = reader.nextInt();
-        System.out.print("minutes: ");
-        int m = reader.nextInt();
-        System.out.print("hours: ");
-        int h = reader.nextInt();
+        seconds.setValue(50);
+        minutes.setValue(59);
+        hours.setValue(23);
 
-        seconds.setValue(s);
-        minutes.setValue(m);
-        hours.setValue(h);
+        while ( true ) {
+            System.out.println( hours + ":" + minutes + ":" + seconds );
+            Thread.sleep(1000);
 
-        int i = 0;
-        while ( i < 121 ) {
-            System.out.println( hours + ":" + minutes + ":" + seconds);   // the current time printed
-
-            // advance seconds
+            // put here the logic to advance your clock by one second
             seconds.next();
 
             // if seconds become zero, advance minutes
@@ -32,11 +24,10 @@ public class Main {
                 minutes.next();
 
                 // if minutes become zero, advance hours
-                if(minutes.getValue() == 0) {
+                if (minutes.getValue() == 0) {
                     hours.next();
                 }
             }
-            i++;
         }
     }
 }
