@@ -1,26 +1,27 @@
 public class NumberStatistics {
     private int amountOfNumbers;
-    private int counter;
     private int sum;
-    private double average;
 
     // constructor
     public NumberStatistics() {
         this.amountOfNumbers = 0;
-        this.counter = 0;
         this.sum = 0;
-        this.average = 0;
     }
 
     // methods
     public void addNumber(int number) {
         number = number;
         this.sum = sum + number;
-        this.counter++;
+
+        // Oh my god, duh. The answer is literally staring me in the face.
+        // Instead of iterating number + 1, which screws up the sum method,
+        // I can iterate the amountOfNumbers variable, that's literally what the
+        // variable was created for. Ugh, ugh. Can't believe that took me so long
+        // to figure out. So simple!
+        amountOfNumbers++;
     }
 
     public int amountOfNumbers() {
-        amountOfNumbers = this.counter;
         return amountOfNumbers;
     }
 
@@ -38,8 +39,7 @@ public class NumberStatistics {
             return 0.0;
         }
         else {
-            average = (double) this.sum / this.amountOfNumbers;
-            return average;
+            return (double) this.sum / this.amountOfNumbers;
         }
     }
 }
