@@ -30,16 +30,41 @@ public class HangmanLogic {
 
         // it the word does not contains the guessed letter, number of faults increase
         // the letter is added among the already guessed letters
+        if(!this.guessedLetters.contains(letter)) {
+            if(this.word.contains(letter)) {
+                this.guessedLetters = this.guessedLetters + letter;
+            }
+            else {
+                this.numberOfFaults++;
+                this.guessedLetters = this.guessedLetters + letter;
+            }
+        }
+
     }
 
     public String hiddenWord() {
         // program here the functionality for building the hidden word
 
+        String hiddenWord = "";
+        int i = 0;
+
         // create the hidden word by interating through this.word letter by letter
-        // if the letter in turn is within the guessed words, put it in to the hidden word
-        // if the letter is not among guessed, replace it with _ in the hidden word 
+        while(i < this.word.length()) {
+
+            char character = this.word.charAt(i);
+            String charString = "" + character;
+
+            // if the letter in turn is within the guessed words, put it in to the hidden word
+            if(this.guessedLetters.contains(charString)) {
+                hiddenWord = hiddenWord + charString;
+            }
+            else {
+                hiddenWord = hiddenWord + "_";
+            }
+            i++;
+        }
 
         // return the hidden word at the end
-        return "";
+        return hiddenWord;
     }
 }
