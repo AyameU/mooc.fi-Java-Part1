@@ -1,5 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        // write testcode here
+        Counter counter = new Counter(2, true);
+
+        counter.decrease(4);
+        System.out.println(counter.value());
+
     }
 }
