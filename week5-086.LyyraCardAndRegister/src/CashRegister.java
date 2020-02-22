@@ -6,7 +6,9 @@ public class CashRegister {
     private int gourmetSold;
 
     public CashRegister() {
-        // at start the register has 1000 euros 
+        this.cashInRegister = 1000;
+        this.economicalSold = 0;
+        this.gourmetSold = 0;
     }
 
     public double payEconomical(double cashGiven) {
@@ -15,8 +17,15 @@ public class CashRegister {
         //    the price of lunch is added to register
         //    the amount of sold lunch is incremented by one
         //    method returns cashGiven - lunch price 
-        // if not enough money given, all is returned and nothing else happens        
-        return -1;
+        // if not enough money given, all is returned and nothing else happens
+        if(cashGiven >= 2.50) {
+            this.cashInRegister += 2.50;
+            this.economicalSold++;
+        }
+        else {
+            return cashGiven;
+        }
+        return cashGiven - 2.50;
     }
 
     public double payGourmet(double cashGiven) {
@@ -26,9 +35,37 @@ public class CashRegister {
         //    the amount of sold lunch is incremented by one
         //    method returns cashGiven - lunch price 
         // if not enough money given, all is returned and nothing else happens
-        return -1;
+        if(cashGiven >= 4.00) {
+            this.cashInRegister += 4.00;
+            this.gourmetSold++;
+        }
+        else {
+            return cashGiven;
+        }
+        return cashGiven - 4.00;
     }
 
+    public boolean payEconomical(LyyraCard card) {
+        if(card.balance() >=  2.50) {
+            card.pay(2.50);
+            economicalSold++;
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean payGourmet(LyyraCard card) {
+        if(card.balance() >=  4.00) {
+            card.pay(4.00);
+            gourmetSold++;
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
 
     public String toString() {
         return "money in register " + cashInRegister + " economical lunches sold: " + economicalSold + " gourmet lunches sold: " + gourmetSold;
