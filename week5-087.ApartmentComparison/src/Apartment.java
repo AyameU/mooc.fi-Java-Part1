@@ -20,13 +20,23 @@ public class Apartment {
         if(this.rooms > otherApartment.rooms) {
             return true;
         }
-
         // if the same num of rooms, check if square meters is greater
         else if(this.rooms == otherApartment.rooms && this.squareMeters > otherApartment.squareMeters) {
             return true;
         }
         // return false if non of those things
         return false;
+    }
+
+    public int priceDifference(Apartment otherApartment) {
+        int priceDifference = 0;
+        if(this.squareMeters * this.pricePerSquareMeter >= otherApartment.squareMeters * otherApartment.pricePerSquareMeter) {
+            priceDifference = (this.squareMeters * this.pricePerSquareMeter) - (otherApartment.squareMeters * otherApartment.pricePerSquareMeter);
+        }
+        else {
+            priceDifference = (otherApartment.squareMeters * otherApartment.pricePerSquareMeter) - (this.squareMeters * this.pricePerSquareMeter);
+        }
+        return priceDifference;
     }
     
 }

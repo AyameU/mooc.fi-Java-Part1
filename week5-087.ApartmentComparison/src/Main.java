@@ -10,5 +10,8 @@ public class Main {
 
         System.out.println( studioManhattan.larger(twoRoomsBrooklyn) );       // false
         System.out.println( fourAndKitchenBronx.larger(twoRoomsBrooklyn) );   // true
+
+        System.out.println( studioManhattan.priceDifference(twoRoomsBrooklyn) );        // 71600
+        System.out.println( fourAndKitchenBronx.priceDifference(twoRoomsBrooklyn) );    // 35400
     }
 }
