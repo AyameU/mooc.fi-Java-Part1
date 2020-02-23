@@ -5,10 +5,44 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // write here the main program
-        Student pekka = new Student("Pekka Mikkola", "013141590");
-        System.out.println("name: " + pekka.getName());
-        System.out.println("studentnumber: " + pekka.getStudentNumber());
-        System.out.println(pekka);
+
+        ArrayList<Student> list = new ArrayList<Student>();
+        Scanner scanner = new Scanner(System.in);
+        String name;
+        String studentNumber;
+
+        System.out.println("Enter a name");
+        name = scanner.nextLine();
+
+        if(!name.isEmpty()) {
+            System.out.println("Enter a Student Number");
+            studentNumber = scanner.nextLine();
+
+            if(!name.isEmpty() && !studentNumber.isEmpty()) {
+                list.add(new Student(name, studentNumber));
+            }
+        }
+        else {
+            System.out.println(list);
+        }
+
+        // loop until user doesn't enter a name
+        while(!name.isEmpty()) {
+            System.out.println("Enter a name");
+            name = scanner.nextLine();
+
+            if(!name.isEmpty()) {
+                System.out.println("Enter a Student Number");
+                studentNumber = scanner.nextLine();
+
+                if(!studentNumber.isEmpty()) {
+                    list.add(new Student(name, studentNumber));
+                }
+            }
+            else {
+                break;
+            }
+        }
+        System.out.println(list);
     }
 }
