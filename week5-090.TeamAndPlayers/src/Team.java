@@ -40,12 +40,22 @@ public class Team {
         System.out.println(printPlayers);
     }
 
-    public void setMaxSize(int maxSize) {
-       this.maxSize = maxSize;
-    }
-
     public int size() {
         return this.players.size();
+    }
+
+    public int goals() {
+        int totalGoals = 0;
+        for(Player player : this.players) {
+            totalGoals += player.goals();
+        }
+        return totalGoals;
+    }
+
+    // setter
+
+    public void setMaxSize(int maxSize) {
+       this.maxSize = maxSize;
     }
 
 }
