@@ -24,6 +24,6 @@ public class Player {
     }
 
     public String toString() {
-        return getName() + ", " + this.amountOfGoals;
+        return getName() + ", goals " + this.amountOfGoals;
     }
 }
