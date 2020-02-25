@@ -35,20 +35,14 @@ public class MyDate {
     // methods
 
     public void advance() {
-        if(this.day == 30) {
+        this.day++;
+        if(this.day > 30) {
             this.day = 1;
-            if(this.day == 1 && this.month != 12) {
-                this.month++;
-            }
-            if(this.month == 12) {
+            this.month++;
+            if(this.month > 12) {
                 this.month = 1;
-            }
-            if(this.day == 1 && this.month == 1) {
                 this.year++;
             }
-        }
-        else {
-            this.day++;
         }
     }
 
