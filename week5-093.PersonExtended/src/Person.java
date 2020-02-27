@@ -11,16 +11,25 @@ public class Person {
     
     
     public int age() {
-// calculate the age based on the birthday and the current day
+        // calculate the age based on the birthday and the current day
         // you get the current day as follows: 
         // Calendar.getInstance().get(Calendar.DATE);
         // Calendar.getInstance().get(Calendar.MONTH) + 1; // January is 0 so we add one
         // Calendar.getInstance().get(Calendar.YEAR);
-        return 0;
+
+        int day = Calendar.getInstance().get(Calendar.DATE);;
+        int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
+        MyDate currentDate = new MyDate(day, month, year);
+
+        return this.birthday.differenceInYears(currentDate);
     }
     
     public boolean olderThan(Person compared) {
-        // compare the ages based on birthdays
+        // if(this.birthday.earlier(compared)) {
+        //   return false;
+        // }
         return false;
     }
     
