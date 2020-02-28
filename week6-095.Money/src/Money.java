@@ -23,7 +23,6 @@ public class Money {
         return cents;
     }
 
-    @Override
     public String toString() {
         String zero = "";
         if (cents < 10) {
@@ -33,4 +32,8 @@ public class Money {
         return euros + "." + zero + cents + "e";
     }
 
+    public Money plus(Money added) {
+        Money plus = new Money(euros() + added.euros(), cents() + added.cents());
+        return plus;
+    }
 }
