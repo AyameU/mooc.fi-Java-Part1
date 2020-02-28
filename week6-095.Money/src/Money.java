@@ -36,4 +36,22 @@ public class Money {
         Money plus = new Money(euros() + added.euros(), cents() + added.cents());
         return plus;
     }
+
+    public boolean less(Money compared) {
+
+        // Wow talk about over thinking this one. We only need to start by comparing
+        // the euros. Cents are literally change that doesn't equal one euro.
+        // You know like our local currency. That is what was tripping me up.
+        // You only need to check the cents() if euros() equals compared.euros().
+        // If euros() is lesser or greater than compared, the cents don't matter.
+        if(euros() < compared.euros()) {
+            return true;
+        }
+        else if(euros() == compared.euros()) {
+            if(cents() < compared.cents()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
