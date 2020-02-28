@@ -8,7 +8,19 @@ public class Person {
         this.name = name;
         this.birthday = new MyDate(pp, kk, vv);
     }
-    
+
+    public Person(String name, MyDate birthday) {
+        this.name = name;
+        this.birthday = birthday;
+    }
+
+    public Person(String name) {
+        this.name = name;
+        int day = Calendar.getInstance().get(Calendar.DATE);;
+        int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        this.birthday = new MyDate(day, month, year);
+    }
     
     public int age() {
         // calculate the age based on the birthday and the current day
@@ -27,9 +39,18 @@ public class Person {
     }
     
     public boolean olderThan(Person compared) {
-        // if(this.birthday.earlier(compared)) {
-        //   return false;
-        // }
+
+        if(age() > compared.age()) {
+            return true;
+        }
+        if(age() == compared.age()) {
+
+            /* Checking compared.birthday specifically because we only need the dates
+            not all of the info in the object. */
+            if(this.birthday.earlier(compared.birthday)) {
+                return true;
+            }
+        }
         return false;
     }
     

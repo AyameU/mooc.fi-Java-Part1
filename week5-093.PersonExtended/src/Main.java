@@ -1,12 +1,11 @@
 public class Main {
   public static void main(String[] args) {
-    // write test code here
-    Person pekka = new Person("Pekka", 15, 2, 1993);
-    Person steve = new Person("Thomas", 1, 3, 1955);
+    Person pekka = new Person("Helga", 31, 12, 2009);
+    Person martin = new Person("Janika", 1, 1, 2010);
     Person me = new Person("Me", 12, 3, 1988);
 
-    System.out.println( steve.getName() + " age " + steve.age() + " years");
-    System.out.println( pekka.getName() + " age " + pekka.age() + " years");
+    System.out.println( martin.getName() + " is older than " +  pekka.getName() + ": "+ martin.olderThan(pekka) );
+    System.out.println( pekka.getName() + " is older than " +  martin.getName() + ": "+ pekka.olderThan(martin) );
     System.out.println( me.getName() + " age " + me.age() + " years");
   }
 }
