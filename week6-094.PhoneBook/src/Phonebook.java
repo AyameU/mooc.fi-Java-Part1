@@ -17,4 +17,14 @@ public class Phonebook {
             System.out.println(p);
         }
     }
+
+    public String searchNumber(String name) {
+        String number = "";
+        for(Person p : phonebook) {
+            if(p.getName().equals(name)) {
+                return p.getNumber();
+            }
+        }
+        return "number is not known";
+    }
 }
