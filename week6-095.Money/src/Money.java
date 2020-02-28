@@ -54,4 +54,29 @@ public class Money {
         }
         return false;
     }
+
+    public Money minus(Money decremented) {
+        int newEuros;
+        int newCents;
+        Money minus;
+
+        if((euros() - decremented.euros()) >= 0) {
+            newEuros = euros() - decremented.euros();
+            if(cents() - decremented.cents() >= 0) {
+                newCents = cents() - decremented.cents();
+                return minus = new Money(newEuros, newCents);
+            }
+            if(cents() - decremented.cents() < 0) {
+                // here we are are figuring out the cents if it goes below zero
+                newCents = (100 + cents()) - decremented.cents();
+                // it also affects the euro amount
+                newEuros--;
+                return minus = new Money(newEuros, newCents);
+            }
+        }
+        else if((euros() - decremented.euros()) < 0) {
+            return minus = new Money(0, 0);
+        }
+        return null;
+    }
 }
