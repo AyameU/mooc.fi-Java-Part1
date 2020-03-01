@@ -17,20 +17,20 @@ public class Library {
         }
     }
 
-    public ArrayList<Book> searchByTitle(String title) {
+    public ArrayList<Book> searchByTitle(String searchedTitle) {
         ArrayList<Book> found = new ArrayList<Book>();
         for(Book book : books) {
-            if(book.title().contains(title)) {
+            if(StringUtils.included(book.title(), searchedTitle)) {
                 found.add(book);
             }
         }
         return found;
     }
 
-    public ArrayList<Book> searchByPublisher(String publisher) {
+    public ArrayList<Book> searchByPublisher(String searchedPublisher) {
         ArrayList<Book> found = new ArrayList<Book>();
         for(Book book : books) {
-            if(book.publisher().contains(publisher)) {
+            if(StringUtils.included(book.publisher(), searchedPublisher)) {
                 found.add(book);
             }
         }
