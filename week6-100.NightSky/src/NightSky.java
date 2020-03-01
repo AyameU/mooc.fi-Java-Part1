@@ -4,6 +4,7 @@ public class NightSky {
     private double density;
     private int width;
     private int height;
+    private int starsInLastPrint;
 
     public NightSky(double density) {
         this.density = density;
@@ -24,7 +25,6 @@ public class NightSky {
     }
 
     public void printLine() {
-
         // for loop to set max line length
         for(int i = 0; i < this.width; i++) {
 
@@ -35,6 +35,7 @@ public class NightSky {
             //if probability is less than density, print either star or whitespace
             if(probability <= this.density) {
                 System.out.print("*");
+                starsInLastPrint++;
             }
             else {
                 System.out.print(" ");
@@ -43,9 +44,14 @@ public class NightSky {
     }
 
     public void print() {
+        this.starsInLastPrint = 0;
         for(int i = 0; i < this.height; i++ ) {
             printLine();
             System.out.println();
         }
+    }
+
+    public int starsInLastPrint() {
+        return this.starsInLastPrint;
     }
 }
