@@ -16,6 +16,9 @@ public class Main {
             System.out.print("? ");
             String command = scanner.nextLine();
             birds.commands(command, scanner);
+            if(command.equals("Quit")) {
+                break;
+            }
         }
     }
 

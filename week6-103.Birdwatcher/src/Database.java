@@ -21,9 +21,6 @@ public class Database {
         else if(command.equals("Show")) {
             show(scanner);
         }
-        else if(command.equals("Quit")) {
-            quit();
-        }
     }
 
     public void add(Scanner scanner) {
@@ -77,9 +74,5 @@ public class Database {
                 System.out.println("Is not a bird!");
             }
         }
-    }
-
-    public void quit() {
-        System.exit(0);
     }
 }
