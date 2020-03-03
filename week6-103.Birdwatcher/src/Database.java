@@ -3,26 +3,25 @@ import java.util.Scanner;
 
 public class Database {
     private ArrayList<Bird> birds;
-    private Scanner scanner;
 
     public Database() {
         this.birds = new ArrayList<Bird>();
     }
 
-    public void commands(Scanner scanner) {
-        if(scanner.equals("Add")) {
+    public void commands(String command, Scanner scanner) {
+        if(command.equals("Add")) {
             add(scanner);
         }
-        else if(scanner.equals("Observation")) {
+        else if(command.equals("Observation")) {
             observation(scanner);
         }
-        else if(scanner.equals("Statistics")) {
+        else if(command.equals("Statistics")) {
             statistics();
         }
-        else if(scanner.equals("Show")) {
+        else if(command.equals("Show")) {
             show(scanner);
         }
-        else if(scanner.equals("Quit")) {
+        else if(command.equals("Quit")) {
             quit();
         }
     }
@@ -39,7 +38,6 @@ public class Database {
 
         // add new Object to ArrayList
         birds.add(bird);
-        System.out.println(birds);
     }
 
     public void observation(Scanner scanner) {
@@ -52,7 +50,7 @@ public class Database {
             if(bird.getName().equals(observation)) {
                 bird.observation();
             }
-            else {
+            else if(!(bird.getName().equals(observation))) {
                 System.out.println("Is not a bird!");
             }
         }
@@ -66,7 +64,7 @@ public class Database {
 
     public void show(Scanner scanner) {
         // get user input
-        System.out.println("What? ");
+        System.out.print("What? ");
         String what = scanner.nextLine();
 
         // loop through objects in arraylist
@@ -75,7 +73,7 @@ public class Database {
             if(bird.getName().equals(what)) {
                 System.out.println(bird);
             }
-            else {
+            if(!(bird.getName().equals(what))) {
                 System.out.println("Is not a bird!");
             }
         }
