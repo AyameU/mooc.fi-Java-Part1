@@ -13,10 +13,6 @@ public class Bird {
         return this.name;
     }
 
-    public String getLatinName() {
-        return this.latinName;
-    }
-
     public int observation() {
         return this.observation++;
     }
