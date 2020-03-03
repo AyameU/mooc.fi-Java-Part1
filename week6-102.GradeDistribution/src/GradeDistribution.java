@@ -9,7 +9,7 @@ public class GradeDistribution {
 
     public GradeDistribution(int score) {
         this.score = score;
-        this.scores = new ArrayList<>();
+        this.scores = new ArrayList<Integer>();
         this.acceptedScores = 0;
         this.allEnteredScores = 0;
     }
@@ -23,7 +23,11 @@ public class GradeDistribution {
     }
 
     public double percentage() {
-        return (100 * acceptedScores) / allEnteredScores;
+        double percentage = 0.0;
+        if(acceptedScores > 0) {
+            percentage = (100 * acceptedScores) / allEnteredScores;
+        }
+        return percentage;
     }
 
     public void printGradeDistribution() {
@@ -68,98 +72,4 @@ public class GradeDistribution {
         }
         System.out.println("Acceptance percentage: " + percentage());
     }
-
-
-    /*
-    private int score;
-    private ArrayList<Integer> allScores;
-    private ArrayList<ArrayList<Integer>> allGrades;
-    private ArrayList<Integer> grade0;
-    private ArrayList<Integer> grade1;
-    private ArrayList<Integer> grade2;
-    private ArrayList<Integer> grade3;
-    private ArrayList<Integer> grade4;
-    private ArrayList<Integer> grade5;
-
-    public GradeDistribution(int score) {
-        this.score = score;
-        this.allScores = new ArrayList<>();
-        this.allGrades  = new ArrayList<>();
-        this.grade0  = new ArrayList<>();
-        this.grade1  = new ArrayList<>();
-        this.grade2  = new ArrayList<>();
-        this.grade3  = new ArrayList<>();
-        this.grade4  = new ArrayList<>();
-        this.grade5  = new ArrayList<>();
-
-        allGrades.add(this.grade0);
-        allGrades.add(this.grade1);
-        allGrades.add(this.grade2);
-        allGrades.add(this.grade3);
-        allGrades.add(this.grade4);
-        allGrades.add(this.grade5);
-    }
-
-    public void addScore(int score) {
-        this.allScores.add(score);
-    }
-
-    public void printScores() {
-        for(int score : allScores) {
-            System.out.println(score);
-        }
-    }
-
-    public double percentage() {
-        int percentage = 0;
-        for(int score : allScores) {
-            percentage += score;
-        }
-        return percentage / allScores.size();
-    }
-
-    public void distributeGrades() {
-        for(int score : allScores) {
-            if(score > 0 && score <= 60) {
-                if(score > 0 && score <= 29) {
-                    this.grade0.add(score);
-                }
-                else if(score >= 30 && score <= 34) {
-                    this.grade1.add(score);
-                }
-                else if(score >= 35 && score <= 39) {
-                    this.grade2.add(score);
-                }
-                else if(score >= 40 && score <= 44) {
-                    this.grade3.add(score);
-                }
-                else if(score >= 45 && score <= 49) {
-                    this.grade4.add(score);
-                }
-                else if(score >= 50 && score <= 60) {
-                    this.grade5.add(score);
-                }
-            }
-        }
-    }
-
-    public String stars(ArrayList<Integer> arraylist) {
-        distributeGrades();
-        String stars = "";
-        for(int i = 0; i < arraylist.size(); i++) {
-            stars += "*";
-        }
-        return stars;
-    }
-
-    public void printGradeDistribution() {
-        System.out.println("Grade distribution:");
-        int i = allGrades.size() - 1;
-        for(ArrayList<Integer> array : allGrades) {
-            System.out.println(i + ": " + stars(array));
-            i--;
-        }
-        System.out.println("Acceptance percentage: " + percentage());
-    }
-    */
 }
