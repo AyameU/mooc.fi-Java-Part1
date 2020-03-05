@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Main {
 
@@ -21,6 +22,12 @@ public class Main {
         int[] values4 = {-1, 3, 1, 7, 4, 5, 2, 4, 3};
         System.out.println("smallest: " + smallest(values4, 6) +  ", Index of the smallest Starting From: " + indexOfTheSmallestStartingFrom(values4, 6));
 
+        int[] values5 = {3, 2, 5, 4, 8};
+        System.out.println( Arrays.toString(values5) );
+        swap(values5, 1, 0);
+        System.out.println( Arrays.toString(values5) );
+        swap(values5, 0, 3);
+        System.out.println( Arrays.toString(values5) );
     }
 
     public static int smallest(int[] array) {
@@ -135,4 +142,12 @@ public class Main {
         return indexOfTheSmallest(array, index);
     }
 
+    public static void swap(int[] array, int index1, int index2) {
+
+        int swapNum1 = array[index1];
+        int swapNum2 = array[index2];
+
+        array[index1] = swapNum2;
+        array[index2] = swapNum1;
+    }
 }
