@@ -11,11 +11,15 @@ public class Main {
         int[] values2 = {-17, -5, 6, 1, 7, 1, 3, 7, 5};
         System.out.println("Index of the smallest: " + indexOfTheSmallest(values2) + ",  smallest: " + smallest(values2));
 
-        // indexes:    0  1  2  3   4
+        // indexes:       0  1  2  3   4
         int[] values3 = {-1, 6, 9, 8, 12};
         System.out.println(indexOfTheSmallestStartingFrom(values3, 1));
         System.out.println(indexOfTheSmallestStartingFrom(values3, 2));
         System.out.println(indexOfTheSmallestStartingFrom(values3, 4));
+
+        // indexes:       0  1  2  3  4  5  6  7  8
+        int[] values4 = {-1, 3, 1, 7, 4, 5, 2, 4, 3};
+        System.out.println("smallest: " + smallest(values4, 6) +  ", Index of the smallest Starting From: " + indexOfTheSmallestStartingFrom(values4, 6));
 
     }
 
@@ -35,7 +39,7 @@ public class Main {
             // if smallest is smallest, break out of the loop
             // else the last index is now smallest, and break the loop
             if(i == array.length - 1) {
-                if (smallest < array[array.length - 1]) {
+                if(smallest < array[array.length - 1]) {
                     break;
                 }
                 else {
@@ -61,6 +65,49 @@ public class Main {
         return smallest;
     }
 
+    // overloaded smallest method, takes int as a starting index parameter
+    public static int smallest(int[] array, int index) {
+
+        // set smallest as index parameter
+        int smallest = array[index];
+
+        // use "array.length - index" to get length of the range
+        int length = array.length - index;
+
+        // if parameter is last index in array, last index is smallest
+        if(index == array.length - 1) {
+            smallest = array[index];
+        }
+        else {
+            // set j to "index + 1", the number next to the starting parameter
+            int j = index + 1;
+
+            for(int i = 0; i < length; i++) {
+
+                // compare smallest to the last index
+                // if smallest is smallest, break out of the loop
+                // else the last index is now smallest, and break the loop
+                if(i == length - 1) {
+                    if(smallest < array[array.length - 1]) {
+                        break;
+                    }
+                    else {
+                        smallest = array[array.length - 1];
+                        break;
+                    }
+                }
+                if(smallest < array[j]) {
+                    j++;
+                }
+                else if(smallest > array[j]) {
+                    smallest = array[j];
+                    j++;
+                }
+            }
+        }
+        return smallest;
+    }
+
     public static int indexOfTheSmallest(int[] array) {
         int indexOfTheSmallest = 0;
         for(int i = 0; i <array.length; i++) {
@@ -71,8 +118,21 @@ public class Main {
         return indexOfTheSmallest;
     }
 
-    public static int indexOfTheSmallestStartingFrom(int[] array) {
+    // overloaded method for indexOfTheSmallestStartingFrom
+    public static int indexOfTheSmallest(int[] array, int index) {
+        int smallest = smallest(array, index);
 
+        int indexOfTheSmallest = 0;
+        for(int i = index; i <array.length; i++) {
+            if(array[i] == smallest) {
+                indexOfTheSmallest = i;
+            }
+        }
+        return indexOfTheSmallest;
+    }
+
+    public static int indexOfTheSmallestStartingFrom(int[] array, int index) {
+        return indexOfTheSmallest(array, index);
     }
 
 }
