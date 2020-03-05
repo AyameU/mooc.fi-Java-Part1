@@ -3,31 +3,10 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-
-        // indexes:     0  1  2  3  4  5  6   7  8
-        int[] values = {3, 5, 6, 2, 7, 1, -1, 8, 5};
-        System.out.println("smallest: " + smallest(values));
-
-        // indexes:       0    1  2  3  4  5  6  7  8
-        int[] values2 = {-17, -5, 6, 1, 7, 1, 3, 7, 5};
-        System.out.println("Index of the smallest: " + indexOfTheSmallest(values2) + ",  smallest: " + smallest(values2));
-
-        // indexes:       0  1  2  3   4
-        int[] values3 = {-1, 6, 9, 8, 12};
-        System.out.println(indexOfTheSmallestStartingFrom(values3, 1));
-        System.out.println(indexOfTheSmallestStartingFrom(values3, 2));
-        System.out.println(indexOfTheSmallestStartingFrom(values3, 4));
-
-        // indexes:       0  1  2  3  4  5  6  7  8
-        int[] values4 = {-1, 3, 1, 7, 4, 5, 2, 4, 3};
-        System.out.println("smallest: " + smallest(values4, 6) +  ", Index of the smallest Starting From: " + indexOfTheSmallestStartingFrom(values4, 6));
-
-        int[] values5 = {3, 2, 5, 4, 8};
-        System.out.println( Arrays.toString(values5) );
-        swap(values5, 1, 0);
-        System.out.println( Arrays.toString(values5) );
-        swap(values5, 0, 3);
-        System.out.println( Arrays.toString(values5) );
+                      // 0  1  2  3   4   5   6  7  8   9  10  11 12
+        int[] values7 = {3, -3, 15, 6, 11, -1, 4, 16, 1, 12, 19, 19, 6, 5, 3, 14, 20, 10, 20, 16, -2, -6, 20, 17, -4, 12};
+        System.out.println(smallest(values7));
+        sort(values7);
     }
 
     public static int smallest(int[] array) {
@@ -129,9 +108,14 @@ public class Main {
     public static int indexOfTheSmallest(int[] array, int index) {
         int smallest = smallest(array, index);
 
-        int indexOfTheSmallest = 0;
-        for(int i = index; i <array.length; i++) {
-            if(array[i] == smallest) {
+        int indexOfTheSmallest = index;
+
+        // loop through the array starting at the index parameter given
+        for(int i = indexOfTheSmallest + 1; i <array.length; i++) {
+
+            // checking the number next to the parameter index
+            // if i is less than the parameter, i becomes the smallest index
+            if(array[i] < array[indexOfTheSmallest]) {
                 indexOfTheSmallest = i;
             }
         }
@@ -149,5 +133,18 @@ public class Main {
 
         array[index1] = swapNum2;
         array[index2] = swapNum1;
+    }
+
+    // method to implement selection sorting
+    public static void sort(int[] array) {
+
+        System.out.println(Arrays.toString(array));
+
+        for(int i = 0; i < array.length; i++) {
+            if(i < array.length - 1) {
+                swap(array,i,indexOfTheSmallestStartingFrom(array, i));
+                System.out.println(Arrays.toString(array));
+            }
+        }
     }
 }
