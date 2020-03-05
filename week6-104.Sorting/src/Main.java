@@ -106,7 +106,6 @@ public class Main {
 
     // overloaded method for indexOfTheSmallestStartingFrom
     public static int indexOfTheSmallest(int[] array, int index) {
-        int smallest = smallest(array, index);
 
         int indexOfTheSmallest = index;
 
