@@ -5,15 +5,33 @@ public class GuessingGame {
     private Scanner reader;
 
     public GuessingGame() {
-        // use only this scanner, otherwise the tests do not work
         this.reader = new Scanner(System.in);
     }
 
     public void play(int lowerLimit, int upperLimit) {
         instructions(lowerLimit, upperLimit);
 
-        // write the guessing logic here
+        int average;
+        boolean greater;
+        int i = 0;
 
+        while(i < howManyTimesHalvable(average(lowerLimit, upperLimit))) {
+
+                if(lowerLimit == upperLimit) {
+                    break;
+                }
+
+                average = this.average(lowerLimit, upperLimit);
+                greater = this.isGreaterThan(average);
+
+                if(greater) {
+                    lowerLimit = average + 1;
+                }
+                else {
+                    upperLimit = average;
+                }
+        }
+        System.out.println("The number you're thinking of is " + upperLimit + ".");
     }
 
     public boolean isGreaterThan(int value) {
